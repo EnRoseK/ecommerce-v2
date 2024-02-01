@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	* {
+		@apply transition-all duration-300;
+	}
+
+	html {
+		-webkit-tap-highlight-color: transparent;
+	}
+	html,
+	body {
+		@apply antialiased bg-brand-light text-brand-muted font-sans;
+	}
+
+	p {
+		@apply mb-5;
+	}
+
+	p:last-of-type {
+		@apply mb-0;
+	}
+
+	p > strong {
+		@apply font-medium;
+	}
+
+	p > a {
+		@apply transition text-brand;
+	}
+
+	p > a:hover {
+		@apply text-brand-dark;
+	}
+
+	button:focus {
+		outline: 0 solid !important;
+	}
+}
