@@ -1,13 +1,23 @@
+import { useModal } from '@/hooks';
 import { SearchIcon } from '@/icons';
 import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ProductDetailsModal } from '@/components';
 
 interface ProductGridCardProps {
   isHome?: boolean;
 }
 
 export const ProductGridCard: React.FC<ProductGridCardProps> = ({ isHome = true }) => {
+  const [openModal, closeModal] = useModal();
+
+  const openProductDetailsModal = () => {
+    openModal({
+      content: <ProductDetailsModal />,
+    });
+  };
+
   return (
     <article
       className={classNames(
@@ -27,8 +37,8 @@ export const ProductGridCard: React.FC<ProductGridCardProps> = ({ isHome = true 
             priority
             fill
             sizes='(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw'
+          (max-width: 1200px) 50vw,
+          33vw'
             className='bg-fill-thumbnail object-cover'
           />
         </div>
@@ -38,7 +48,7 @@ export const ProductGridCard: React.FC<ProductGridCardProps> = ({ isHome = true 
           </span>
           <button
             className='shadow-quickviewButton absolute left-1/2 top-[40%] z-[5] block h-[50px] w-[50px] -translate-x-1/2 scale-0 rounded-full bg-brand-light px-4 py-2 text-center leading-[48px] opacity-0 hover:bg-brand hover:text-brand-light group-hover:visible group-hover:-translate-x-1/2 group-hover:scale-100 group-hover:opacity-100'
-            // onClick={handlePopupView}
+            onClick={openProductDetailsModal}
           >
             <SearchIcon width={20} height={20} opacity='1' />
           </button>

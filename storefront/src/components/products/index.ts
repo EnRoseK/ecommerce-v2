@@ -3,3 +3,4 @@ export * from './CategoriesFilters';
 export * from './ViewAsButton';
 export * from './GridProducts';
 export * from './ListProducts';
+export * from './ProductDetailsModal';

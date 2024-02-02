@@ -108,6 +108,14 @@ const config: Config = {
           '0%': { opacity: '1' },
           '100%': { opacity: '0' },
         },
+        modalOpen: {
+          '0%': { opacity: '0', transform: 'scale(1.1)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        modalClose: {
+          '0%': { opacity: '1', transform: 'scale(1)' },
+          '100%': { opacity: '0', transform: 'scale(1.1)' },
+        },
       },
       animation: {
         shine: 'shine 0.8s ease-in',
@@ -115,6 +123,8 @@ const config: Config = {
         wiggle: 'wiggle 1s ease-in-out infinite',
         fadeIn: 'fadeIn .3s ease forwards',
         fadeOut: 'fadeOut .3s ease forwards',
+        modalOpen: 'modalOpen .3s ease forwards',
+        modalClose: 'modalClose .3s ease forwards',
       },
       fontFamily: {
         sans: [

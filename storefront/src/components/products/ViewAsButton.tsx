@@ -15,22 +15,28 @@ export const ViewAsButton: React.FC<ViewAsButtonProps> = ({ viewAs, setViewAs })
         <button
           onClick={() => setViewAs('grid')}
           type='button'
-          className={classNames(
-            'flex h-[38px] w-[38px] items-center justify-center border border-[#dedede] p-[5px]',
-            { 'text-skin-base': viewAs === 'grid', 'text-[#dedede]': viewAs !== 'grid' },
-          )}
+          className='flex h-[38px] w-[38px] items-center justify-center border border-[#dedede] p-[5px]'
         >
-          <TfiLayoutGrid3Alt size={14} />
+          <TfiLayoutGrid3Alt
+            size={14}
+            className={classNames({
+              'text-skin-base': viewAs === 'grid',
+              'text-[#dedede]': viewAs !== 'grid',
+            })}
+          />
         </button>
         <button
           onClick={() => setViewAs('list')}
           type='button'
-          className={classNames(
-            'flex h-[38px] w-[38px] items-center justify-center border border-l-0 border-[#dedede] p-[5px]',
-            { 'text-skin-base': viewAs === 'list', 'text-[#dedede]': viewAs !== 'list' },
-          )}
+          className='flex h-[38px] w-[38px] items-center justify-center border border-l-0 border-[#dedede] p-[5px]'
         >
-          <PiListFill size={18} />
+          <PiListFill
+            size={18}
+            className={classNames({
+              'text-skin-base': viewAs === 'list',
+              'text-[#dedede]': viewAs !== 'list',
+            })}
+          />
         </button>
       </div>
     </div>
