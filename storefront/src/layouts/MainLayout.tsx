@@ -1,4 +1,4 @@
-import { Header, HighlightedBar } from '@/components';
+import { Footer, Header, HighlightedBar } from '@/components';
 
 interface MainLayoutProps extends React.PropsWithChildren {}
 
@@ -15,6 +15,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       >
         {children}
       </main>
+      <Footer />
     </>
   );
 };

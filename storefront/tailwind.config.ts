@@ -163,6 +163,9 @@ const config: Config = {
         searchBox: '0px 4px 4px rgba(99, 113, 134, 0.1)',
         quickviewButton: '0 3px 6px 1px rgba(0, 0, 0, 0.2)',
       },
+      backgroundImage: {
+        phoneIcon: "url('/assets/icons/icon-phone.png')",
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],
