@@ -1,4 +1,4 @@
-import { Footer, Header, HighlightedBar, MobileNavigation } from '@/components';
+import { BackToTopButton, Footer, Header, HighlightedBar, MobileNavigation } from '@/components';
 import { useState } from 'react';
 
 interface MainLayoutProps extends React.PropsWithChildren {}
@@ -20,6 +20,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       </main>
       <Footer />
       <MobileNavigation setShowSearch={setShowSearch} />
+      <BackToTopButton />
     </>
   );
 };
