@@ -161,6 +161,7 @@ const config: Config = {
         vendorCardHover: '0px 1px 15px rgba(0, 0, 0, 0.06)',
         vendorSidebar: '0px 1px 2px rgba(0, 0, 0, 0.03), 0px 1px 3px rgba(0, 0, 0, 0.05)',
         searchBox: '0px 4px 4px rgba(99, 113, 134, 0.1)',
+        quickviewButton: '0 3px 6px 1px rgba(0, 0, 0, 0.2)',
       },
     },
   },

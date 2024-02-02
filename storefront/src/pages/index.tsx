@@ -1,4 +1,10 @@
-import { BannerGridTwo, Container, FeaturesCarousel, HeroCarousel } from '@/components';
+import {
+  BannerGridTwo,
+  Container,
+  FeaturesCarousel,
+  HeroCarousel,
+  ProductsCarousel,
+} from '@/components';
 import { NextPage } from 'next';
 
 const HomePage: NextPage = () => {
@@ -6,6 +12,7 @@ const HomePage: NextPage = () => {
     <Container>
       <HeroCarousel />
       <FeaturesCarousel />
+      <ProductsCarousel sectionTitle='Best seller' className='mb-8' />
       <BannerGridTwo className='mb-8 lg:mb-12' gridClassName='xl:gap-5' />
       <BannerGridTwo className='mb-8 lg:mb-12' gridClassName='xl:gap-5' />
     </Container>
