@@ -1,7 +1,12 @@
 import { TopHeader, MiddleHeader, BottomHeader } from '@/components';
 import { useEffect, useState } from 'react';
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  showSearch: boolean;
+  setShowSearch: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const Header: React.FC<HeaderProps> = ({ showSearch, setShowSearch }) => {
   const [isScrolling, setIsScrolling] = useState<boolean>(false);
 
   useEffect(() => {
@@ -19,6 +24,8 @@ export const Header: React.FC = () => {
       document.removeEventListener('scroll', listener);
     };
   }, []);
+
+  // TODO: Find solution for searchbar
 
   return (
     <>
