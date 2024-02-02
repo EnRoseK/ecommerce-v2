@@ -14,7 +14,8 @@ export const ProductGridCard: React.FC<ProductGridCardProps> = ({ isHome = true 
 
   const openProductDetailsModal = () => {
     openModal({
-      content: <ProductDetailsModal />,
+      content: <ProductDetailsModal closeHandler={closeModal} />,
+      className: 'w-full p-1 md:w-[600px] lg:w-[940px] lg:p-0 xl:w-[1180px] xl:p-3',
     });
   };
 

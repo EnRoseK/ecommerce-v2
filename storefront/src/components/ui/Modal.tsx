@@ -1,21 +1,35 @@
 import classNames from 'classnames';
+import { twMerge } from 'tailwind-merge';
 
 interface ModalProps extends React.PropsWithChildren {
   open: boolean;
   onAnimationEnd: () => void;
   closeHandler: () => void;
+  className?: string;
 }
 
-export const Modal: React.FC<ModalProps> = ({ open, onAnimationEnd, children, closeHandler }) => {
+export const Modal: React.FC<ModalProps> = ({
+  open,
+  onAnimationEnd,
+  children,
+  closeHandler,
+  className,
+}) => {
   return (
     <>
-      <div className='pointer-events-none fixed inset-0 z-[60] flex items-center justify-center'>
+      <div className='pointer-events-none fixed inset-0 z-[60] flex items-center justify-center px-2'>
         <div
           onAnimationEnd={onAnimationEnd}
-          className={classNames('pointer-events-auto rounded-md bg-brand-light', {
-            'animate-modalOpen': open,
-            'animate-modalClose': !open,
-          })}
+          className={twMerge(
+            classNames(
+              'pointer-events-auto relative w-full overflow-y-auto rounded-md bg-brand-light',
+              {
+                'animate-modalOpen': open,
+                'animate-modalClose': !open,
+              },
+            ),
+            className,
+          )}
         >
           {children}
         </div>

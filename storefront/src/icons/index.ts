@@ -6,3 +6,6 @@ export * from './CartIcon';
 export * from './RocketIcon';
 export * from './HomeIcon';
 export * from './FilterIcon';
+export * from './LabelIcon';
+export * from './MinusIcon';
+export * from './PlusIcon';

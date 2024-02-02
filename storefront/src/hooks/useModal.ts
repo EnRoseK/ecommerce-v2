@@ -8,15 +8,17 @@ export const useModal = () => {
     throw new Error('Context must be used inside provider!');
   }
 
-  const { setOpenModal, setContent } = ctx;
+  const { setOpenModal, setContent, setClassName } = ctx;
 
-  const openModal = ({ content }: { content: React.ReactNode }) => {
+  const openModal = ({ content, className }: { content: React.ReactNode; className?: string }) => {
     setContent(content);
+    setClassName(className || '');
     setOpenModal(true);
   };
 
   const closeModal = () => {
     setOpenModal(false);
+    setClassName('');
     setContent('');
   };
 
