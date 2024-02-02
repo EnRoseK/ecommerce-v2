@@ -1,5 +1,6 @@
 import {
   BannerGridTwo,
+  CategoriesCarousel,
   CategoryProductsCarousel,
   Container,
   FeaturesCarousel,
@@ -18,6 +19,7 @@ const HomePage: NextPage = () => {
       <CategoryProductsCarousel />
       <BannerGridTwo className='mb-8 lg:mb-12' gridClassName='xl:gap-5' />
       <CategoryProductsCarousel />
+      <CategoriesCarousel />
     </Container>
   );
 };
