@@ -1,7 +1,12 @@
+import { Container, HeroCarousel } from '@/components';
 import { NextPage } from 'next';
 
 const HomePage: NextPage = () => {
-  return <div className='h-[10000px]'>HomePage</div>;
+  return (
+    <Container>
+      <HeroCarousel />
+    </Container>
+  );
 };
 
 export default HomePage;

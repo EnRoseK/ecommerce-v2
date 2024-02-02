@@ -1,6 +1,6 @@
 import { Container, Logo, Searchbar } from '@/components';
 import { navigationItems } from '@/constants';
-import { useClickOutside, useStopScroll } from '@/hooks';
+import { useStopScroll } from '@/hooks';
 import { CartIcon, SearchIcon, UserIcon } from '@/icons';
 import classNames from 'classnames';
 import Link from 'next/link';

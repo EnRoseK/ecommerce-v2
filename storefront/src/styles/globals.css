@@ -5,39 +5,49 @@
 @tailwind utilities;
 
 @layer base {
-	* {
-		@apply transition-all duration-300;
-	}
+  * {
+    @apply transition-all duration-300;
+  }
 
-	html {
-		-webkit-tap-highlight-color: transparent;
-	}
-	html,
-	body {
-		@apply antialiased bg-brand-light text-brand-muted font-sans;
-	}
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  html,
+  body {
+    @apply bg-brand-light font-sans text-brand-muted antialiased;
+  }
 
-	p {
-		@apply mb-5;
-	}
+  p {
+    @apply mb-5;
+  }
 
-	p:last-of-type {
-		@apply mb-0;
-	}
+  p:last-of-type {
+    @apply mb-0;
+  }
 
-	p > strong {
-		@apply font-medium;
-	}
+  p > strong {
+    @apply font-medium;
+  }
 
-	p > a {
-		@apply transition text-brand;
-	}
+  p > a {
+    @apply text-brand transition;
+  }
 
-	p > a:hover {
-		@apply text-brand-dark;
-	}
+  p > a:hover {
+    @apply text-brand-dark;
+  }
 
-	button:focus {
-		outline: 0 solid !important;
-	}
+  button:focus {
+    outline: 0 solid !important;
+  }
+}
+
+@layer components {
+  .hero__carousel-pagination__bullet {
+    @apply h-3 w-3 cursor-pointer rounded-lg border-none bg-[#ccc] bg-opacity-20 lg:bg-opacity-100;
+  }
+
+  .hero__carousel-pagination__bullet-active {
+    @apply w-[18px] bg-opacity-100 lg:w-[34px] lg:bg-brand;
+  }
 }
