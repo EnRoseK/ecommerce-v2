@@ -1,14 +1,32 @@
-import classNames from 'classnames';
 import { TopHeader, MiddleHeader, BottomHeader } from '@/components';
+import { useEffect, useState } from 'react';
 
 export const Header: React.FC = () => {
+  const [isScrolling, setIsScrolling] = useState<boolean>(false);
+
+  useEffect(() => {
+    const topOffset = 130;
+    const listener = () => {
+      if (window.scrollY > topOffset) {
+        setIsScrolling(true);
+      } else {
+        setIsScrolling(false);
+      }
+    };
+
+    document.addEventListener('scroll', listener);
+    return () => {
+      document.removeEventListener('scroll', listener);
+    };
+  }, []);
+
   return (
     <>
-      <header className={classNames('sticky top-0 z-50 w-full lg:relative')}>
-        <div className='z-20 w-full bg-fill-one'>
+      <header className='sticky top-0 z-50 lg:!relative'>
+        <div className='bg-fill-one'>
           <TopHeader />
           <MiddleHeader />
-          <BottomHeader />
+          <BottomHeader isScrolling={isScrolling} />
         </div>
       </header>
     </>

@@ -23,14 +23,18 @@ const searchVariants = cva(
 
 interface SearchbarProps extends VariantProps<typeof searchVariants> {
   className?: string;
+  showOverlay?: boolean;
+  overlayClickHandler?: () => void;
 }
 
 export const Searchbar: React.FC<SearchbarProps> = ({
   className = 'md:w-[730px] 2xl:w-[800px]',
   variant,
+  showOverlay = false,
+  overlayClickHandler,
 }) => {
   const [searchValue, setSearchValue] = useState<string>('');
-  const [focused, setFocused] = useState<boolean>(false);
+  const [focused, setFocused] = useState<boolean>(showOverlay || false);
 
   const [renderFocused, onAnimationEnd] = useAnimation(focused);
   useStopScroll(focused);
@@ -95,7 +99,12 @@ export const Searchbar: React.FC<SearchbarProps> = ({
       {renderFocused && (
         <div
           onAnimationEnd={onAnimationEnd}
-          onClick={() => setFocused(false)}
+          onClick={() => {
+            setFocused(false);
+            if (overlayClickHandler) {
+              overlayClickHandler();
+            }
+          }}
           className={classNames(
             'fixed left-0 top-0 z-[21] flex h-full w-full cursor-pointer bg-black/35',
             { 'animate-fadeIn': focused, 'animate-fadeOut': !focused },
