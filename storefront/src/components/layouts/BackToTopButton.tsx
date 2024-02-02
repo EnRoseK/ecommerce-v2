@@ -35,7 +35,7 @@ export const BackToTopButton: React.FC = () => {
           onClick={scrollToTop}
           type='button'
           className={classNames(
-            'fixed bottom-20 right-5 z-[100] flex h-10 w-10 cursor-pointer content-center items-center rounded bg-skin-primary text-skin-inverted',
+            'fixed bottom-20 right-5 z-[100] flex h-10 w-10 cursor-pointer content-center items-center rounded bg-skin-primary text-skin-inverted active:ring active:ring-skin-primary/50',
             { 'animate-fadeIn': show, 'animate-fadeOut': !show },
           )}
         >
