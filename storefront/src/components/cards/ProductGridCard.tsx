@@ -1,10 +1,23 @@
 import { SearchIcon } from '@/icons';
+import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const ProductGridCard: React.FC = () => {
+interface ProductGridCardProps {
+  isHome?: boolean;
+}
+
+export const ProductGridCard: React.FC<ProductGridCardProps> = ({ isHome = true }) => {
   return (
-    <article className='group relative flex h-full flex-col px-2 sm:px-3 min-[810px]:before:absolute min-[810px]:before:right-0 min-[810px]:before:top-[30px] min-[810px]:before:z-[5] min-[810px]:before:block min-[810px]:before:h-[calc(100%_-_60px)] min-[810px]:before:w-[1px] min-[810px]:before:bg-[#f5f5f5]'>
+    <article
+      className={classNames(
+        'group relative flex h-full flex-col px-2 sm:px-3 min-[801px]:before:absolute min-[801px]:before:right-0 min-[801px]:before:top-[30px] min-[801px]:before:z-[5] min-[801px]:before:block min-[801px]:before:h-[calc(100%_-_60px)] min-[801px]:before:w-[1px] min-[801px]:before:bg-[#f5f5f5]',
+        {
+          'min-[801px]:after:absolute min-[801px]:after:bottom-0 min-[801px]:after:left-0 min-[801px]:after:z-[5] min-[801px]:after:block min-[801px]:after:h-[1px] min-[801px]:after:w-full min-[801px]:after:bg-[#f5f5f5]':
+            !isHome,
+        },
+      )}
+    >
       <div className='relative mt-4  flex-shrink-0'>
         <div className='relative mx-auto h-[180px] w-full overflow-hidden group-hover:-translate-y-2.5 group-hover:opacity-80 md:h-[200px]'>
           <Image

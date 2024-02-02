@@ -4,3 +4,4 @@ export * from './FeaturesCard';
 export * from './BannerCard';
 export * from './ProductGridCard';
 export * from './CategoryGridCard';
+export * from './ProductListCard';
