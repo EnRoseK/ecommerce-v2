@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { TopHeader, MiddleHeader } from '@/components';
+import { TopHeader, MiddleHeader, BottomHeader } from '@/components';
 
 export const Header: React.FC = () => {
   return (
@@ -8,6 +8,7 @@ export const Header: React.FC = () => {
         <div className='z-20 w-full bg-fill-one'>
           <TopHeader />
           <MiddleHeader />
+          <BottomHeader />
         </div>
       </header>
     </>
