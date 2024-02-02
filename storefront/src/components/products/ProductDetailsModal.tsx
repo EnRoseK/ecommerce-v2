@@ -1,4 +1,4 @@
-import { Button, CloseButton } from '@/components';
+import { Button, CloseButton, ThumbnailCarousel } from '@/components';
 import { CartIcon, LabelIcon, MinusIcon, PlusIcon } from '@/icons';
 import Link from 'next/link';
 import { IoIosHeartEmpty } from 'react-icons/io';
@@ -16,7 +16,9 @@ export const ProductDetailsModal: React.FC<ProductDetailsModalProps> = ({ closeH
         <div className='mb-2 px-2 pt-4 md:px-5 md:pt-7 lg:mb-2'>
           <div className='items-stretch justify-between gap-8 lg:flex'>
             {/* Thumbnail */}
-            <div className='justify-center overflow-hidden xl:flex'></div>
+            <div className='justify-center overflow-hidden xl:flex'>
+              <ThumbnailCarousel isProductModal />
+            </div>
 
             {/* Details */}
             <div className='flex flex-shrink-0 flex-col lg:w-[430px] xl:w-[520px] 2xl:w-[520px]'>

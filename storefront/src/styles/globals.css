@@ -52,3 +52,7 @@
     @apply w-[18px] bg-opacity-100 lg:w-[34px] lg:bg-brand;
   }
 }
+
+#productGalleryThumbs .swiper-wrapper .swiper-slide.swiper-slide-thumb-active {
+  border-color: #80d8c7;
+}
