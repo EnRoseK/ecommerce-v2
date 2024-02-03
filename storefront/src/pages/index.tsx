@@ -14,11 +14,22 @@ const HomePage: NextPage = () => {
     <Container>
       <HeroCarousel />
       <FeaturesCarousel />
-      <ProductsCarousel sectionTitle='Best seller' className='mb-8' />
+      <ProductsCarousel
+        sectionTitle='Best seller'
+        className='mb-8'
+        prevButtonId='products-best__carousel-prev'
+        nextButtonId='products-best__carousel-next'
+      />
       <BannerGridTwo className='mb-8 lg:mb-12' gridClassName='xl:gap-5' />
-      <CategoryProductsCarousel />
+      <CategoryProductsCarousel
+        prevButtonId='category-one-products__carousel-prev'
+        nextButtonId='category-one-products__carousel-next'
+      />
       <BannerGridTwo className='mb-8 lg:mb-12' gridClassName='xl:gap-5' />
-      <CategoryProductsCarousel />
+      <CategoryProductsCarousel
+        prevButtonId='category-two-products__carousel-prev'
+        nextButtonId='category-two-products__carousel-next'
+      />
       <CategoriesCarousel />
     </Container>
   );

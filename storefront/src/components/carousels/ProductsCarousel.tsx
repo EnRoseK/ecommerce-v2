@@ -32,12 +32,16 @@ interface ProductsCarouselProps {
     [width: number]: SwiperOptions;
     [ratio: string]: SwiperOptions;
   };
+  prevButtonId?: string;
+  nextButtonId?: string;
 }
 
 export const ProductsCarousel: React.FC<ProductsCarouselProps> = ({
   sectionTitle,
   className,
   breakpoints = defaultBreakpoints,
+  prevButtonId = 'product__carousel-prev',
+  nextButtonId = 'product__carousel-next',
 }) => {
   return (
     <div className={twMerge('relative', className)}>
@@ -57,8 +61,8 @@ export const ProductsCarousel: React.FC<ProductsCarouselProps> = ({
             modules={[Navigation]}
             breakpoints={breakpoints}
             navigation={{
-              nextEl: '#product__carousel-next',
-              prevEl: '#product__carousel-prev',
+              nextEl: `#${nextButtonId}`,
+              prevEl: `#${prevButtonId}`,
               disabledClass: 'hidden pointer-events-none',
             }}
           >
@@ -72,8 +76,8 @@ export const ProductsCarousel: React.FC<ProductsCarouselProps> = ({
           </Swiper>
 
           <CarouselNavigation
-            prevButtonId='product__carousel-prev'
-            nextButtonId='product__carousel-next'
+            prevButtonId={prevButtonId}
+            nextButtonId={nextButtonId}
             prevButtonClassName='start-3 -top-12 3xl:top-auto 3xl:-translate-y-2 4xl:-translate-y-10'
             nextButtonClassName='end-3 -top-12 3xl:top-auto transform 2xl:translate-x-0 3xl:-translate-y-2 xl:translate-x-2.5'
           />

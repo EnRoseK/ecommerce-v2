@@ -61,7 +61,15 @@ const breakpoints = {
   },
 };
 
-export const CategoryProductsCarousel: React.FC = () => {
+interface CategoryProductsCarouselProps {
+  prevButtonId?: string;
+  nextButtonId?: string;
+}
+
+export const CategoryProductsCarousel: React.FC<CategoryProductsCarouselProps> = ({
+  prevButtonId,
+  nextButtonId,
+}) => {
   return (
     <div className='mb-8 lg:mb-12'>
       <div className='border border-black/10 xl:flex'>
@@ -98,7 +106,11 @@ export const CategoryProductsCarousel: React.FC = () => {
         </div>
 
         <div className='w-full p-2.5 xl:w-[calc(100%_-_420px)]'>
-          <ProductsCarousel breakpoints={breakpoints} />
+          <ProductsCarousel
+            breakpoints={breakpoints}
+            prevButtonId={prevButtonId}
+            nextButtonId={nextButtonId}
+          />
         </div>
       </div>
     </div>
