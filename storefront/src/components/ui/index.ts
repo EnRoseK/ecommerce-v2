@@ -2,5 +2,5 @@ export * from './Container';
 export * from './Logo';
 export * from './Breadcrumb';
 export * from './Button';
-export * from './Modal';
+export * from '../common/Modal';
 export * from './CloseButton';

@@ -116,6 +116,22 @@ const config: Config = {
           '0%': { opacity: '1', transform: 'scale(1)' },
           '100%': { opacity: '0', transform: 'scale(1.1)' },
         },
+        drawerRightOpen: {
+          '0%': { right: '-100%' },
+          '100%': { right: '0' },
+        },
+        drawerRightClose: {
+          '0%': { right: '0' },
+          '100%': { right: '-100%' },
+        },
+        drawerLeftOpen: {
+          '0%': { left: '-100%' },
+          '100%': { left: '0' },
+        },
+        drawerLeftClose: {
+          '0%': { left: '0' },
+          '100%': { left: '-100%' },
+        },
       },
       animation: {
         shine: 'shine 0.8s ease-in',
@@ -125,6 +141,10 @@ const config: Config = {
         fadeOut: 'fadeOut .3s ease forwards',
         modalOpen: 'modalOpen .3s ease forwards',
         modalClose: 'modalClose .3s ease forwards',
+        drawerRightOpen: 'drawerRightOpen .3s ease forwards',
+        drawerRightClose: 'drawerRightClose .3s ease forwards',
+        drawerLeftOpen: 'drawerLeftOpen .3s ease forwards',
+        drawerLeftClose: 'drawerLeftClose .3s ease forwards',
       },
       fontFamily: {
         sans: [
@@ -172,6 +192,7 @@ const config: Config = {
         vendorSidebar: '0px 1px 2px rgba(0, 0, 0, 0.03), 0px 1px 3px rgba(0, 0, 0, 0.05)',
         searchBox: '0px 4px 4px rgba(99, 113, 134, 0.1)',
         quickviewButton: '0 3px 6px 1px rgba(0, 0, 0, 0.2)',
+        drawer: '-2px 0 8px rgba(0,0,0,.15)',
       },
       backgroundImage: {
         phoneIcon: "url('/assets/icons/icon-phone.png')",
