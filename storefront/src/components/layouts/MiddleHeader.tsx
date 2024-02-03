@@ -1,7 +1,14 @@
-import { Container, Logo, Searchbar } from '@/components';
+import { CartDrawer, Container, Logo, Searchbar } from '@/components';
+import { useDrawer } from '@/hooks';
 import { CartIcon, MenuIcon, UserIcon } from '@/icons';
 
 export const MiddleHeader: React.FC = () => {
+  const [openDrawer, closeDrawer] = useDrawer();
+
+  const openCartDrawer = () => {
+    openDrawer({ content: <CartDrawer closeHandler={closeDrawer} /> });
+  };
+
   return (
     <div className='border-b border-white/5'>
       <Container>
@@ -33,7 +40,11 @@ export const MiddleHeader: React.FC = () => {
             </button>
 
             {/* Cart Button */}
-            <button type='button' className='group hidden shrink-0 items-center lg:flex'>
+            <button
+              onClick={openCartDrawer}
+              type='button'
+              className='group hidden shrink-0 items-center lg:flex'
+            >
               <span className='relative flex h-[45px] w-[45px] items-center justify-center rounded-full border-2 border-white/15 px-[5px]'>
                 <CartIcon className='text-brand' />
 

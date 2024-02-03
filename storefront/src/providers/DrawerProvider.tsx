@@ -1,5 +1,5 @@
 import { Drawer } from '@/components';
-import { useAnimation } from '@/hooks';
+import { useAnimation, useStopScroll } from '@/hooks';
 import { createContext, useState } from 'react';
 
 interface DrawerProviderProps extends React.PropsWithChildren {}
@@ -19,6 +19,8 @@ export const DrawerProvider: React.FC<DrawerProviderProps> = ({ children }) => {
   const [content, setContent] = useState<React.ReactNode>(<></>);
 
   const value = { setOpenDrawer, setPosition, setContent };
+
+  useStopScroll(openDrawer);
 
   return (
     <DrawerContext.Provider value={value}>
