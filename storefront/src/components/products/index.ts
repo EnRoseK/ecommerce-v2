@@ -5,3 +5,4 @@ export * from './GridProducts';
 export * from './ListProducts';
 export * from './ProductDetailsModal';
 export * from './ProductSingleDetails';
+export * from './product-details';
