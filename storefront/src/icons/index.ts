@@ -10,3 +10,4 @@ export * from './LabelIcon';
 export * from './MinusIcon';
 export * from './PlusIcon';
 export * from './DeleteIcon';
+export * from './NotFoundIcon';
