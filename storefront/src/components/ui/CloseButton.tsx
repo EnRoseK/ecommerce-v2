@@ -11,7 +11,7 @@ export const CloseButton: React.FC<CloseButtonProps> = ({ onClickHandler, classN
     <button
       onClick={onClickHandler}
       className={twMerge(
-        'absolute -right-2 -top-2 z-10 inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-light text-brand-dark  text-opacity-50 hover:text-opacity-100 focus:outline-none md:right-1 md:top-1 lg:right-0.5 lg:top-0.5 lg:h-9 lg:w-9 lg:bg-transparent',
+        'absolute right-1 top-1 z-10 inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-light text-brand-dark  text-opacity-50 hover:text-opacity-100 focus:outline-none lg:h-9 lg:w-9 lg:bg-transparent',
         className,
       )}
     >

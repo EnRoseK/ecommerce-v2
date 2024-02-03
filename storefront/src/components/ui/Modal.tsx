@@ -17,12 +17,12 @@ export const Modal: React.FC<ModalProps> = ({
 }) => {
   return (
     <>
-      <div className='pointer-events-none fixed inset-0 z-[60] flex items-center justify-center px-2'>
+      <div className='pointer-events-none fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto px-2'>
         <div
           onAnimationEnd={onAnimationEnd}
           className={twMerge(
             classNames(
-              'pointer-events-auto relative w-full overflow-y-auto rounded-md bg-brand-light',
+              'pointer-events-auto relative max-h-[90vh] w-full overflow-y-auto rounded-md bg-brand-light lg:max-h-max',
               {
                 'animate-modalOpen': open,
                 'animate-modalClose': !open,

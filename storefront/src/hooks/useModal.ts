@@ -18,8 +18,6 @@ export const useModal = () => {
 
   const closeModal = () => {
     setOpenModal(false);
-    setClassName('');
-    setContent('');
   };
 
   return [openModal, closeModal] as const;
