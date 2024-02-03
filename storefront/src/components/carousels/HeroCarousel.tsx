@@ -1,5 +1,5 @@
 import { CarouselNavigation, HeroCard } from '@/components';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const HeroCarousel: React.FC = () => {
@@ -7,7 +7,11 @@ export const HeroCarousel: React.FC = () => {
     <div className='mb-7 mt-6'>
       <div className='relative'>
         <Swiper
-          modules={[Pagination, Navigation]}
+          modules={[Pagination, Navigation, Autoplay]}
+          autoplay={{
+            disableOnInteraction: true,
+            delay: 2500,
+          }}
           navigation={{
             prevEl: '#hero__carousel-prev',
             nextEl: '#hero__carousel-next',
