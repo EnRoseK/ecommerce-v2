@@ -1,12 +1,18 @@
-import { useAnimation, useClickOutside } from '@/hooks';
+import { useAnimation, useClickOutside, useDrawer } from '@/hooks';
 import { CartIcon, CloseIcon, HomeIcon, MenuIcon, SearchIcon, UserIcon } from '@/icons';
 import classNames from 'classnames';
 import { useState } from 'react';
+import { CartDrawer } from '@/components';
 
 export const MobileNavigation: React.FC = () => {
   const [showSearch, setShowSearch, ref] = useClickOutside();
   const [renderSearch, onAnimationEnd] = useAnimation(showSearch);
   const [searchValue, setSearchValue] = useState<string>('');
+  const [openDrawer, closeDrawer] = useDrawer();
+
+  const openCartDrawer = () => {
+    openDrawer({ content: <CartDrawer closeHandler={closeDrawer} /> });
+  };
 
   return (
     <div className='body-font fixed -bottom-0.5 z-30 flex h-14 w-full items-center justify-between bg-brand-light px-4 pb-0.5 text-brand-muted shadow-bottomNavigation md:px-6 lg:hidden lg:px-8'>
@@ -33,7 +39,7 @@ export const MobileNavigation: React.FC = () => {
 
       <button
         className='relative flex h-auto shrink-0 items-center justify-center focus:outline-none'
-        aria-label='Cart Button'
+        onClick={openCartDrawer}
       >
         <CartIcon />
       </button>

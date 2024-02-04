@@ -17,7 +17,7 @@ export const Modal: React.FC<ModalProps> = ({
 }) => {
   return (
     <>
-      <div className='pointer-events-none fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto px-2'>
+      <div className='pointer-events-none fixed inset-0 z-[999] flex items-center justify-center overflow-y-auto px-2'>
         <div
           onAnimationEnd={onAnimationEnd}
           className={twMerge(
@@ -39,7 +39,7 @@ export const Modal: React.FC<ModalProps> = ({
       <div
         onClick={closeHandler}
         onAnimationEnd={onAnimationEnd}
-        className={classNames('fixed inset-0 z-50 cursor-pointer bg-brand-dark/70', {
+        className={classNames('fixed inset-0 z-[998] cursor-pointer bg-brand-dark/70', {
           'animate-fadeIn': open,
           'animate-fadeOut': !open,
         })}

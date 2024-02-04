@@ -1,6 +1,6 @@
-import { CategoryDropdownMenu, Container, Logo, Searchbar } from '@/components';
+import { CartDrawer, CategoryDropdownMenu, Container, Logo, Searchbar } from '@/components';
 import { navigationItems } from '@/constants';
-import { useAnimation, useStopScroll } from '@/hooks';
+import { useAnimation, useDrawer, useStopScroll } from '@/hooks';
 import { CartIcon, SearchIcon, UserIcon } from '@/icons';
 import classNames from 'classnames';
 import Link from 'next/link';
@@ -16,6 +16,11 @@ export const BottomHeader: React.FC<BottomHeaderProps> = ({ isScrolling }) => {
   const [showCategoryDropdown, setShowCategoryDropdown] = useState<boolean>(false);
   const [renderCategoryDropdown, onAnimationEnd] = useAnimation(showCategoryDropdown);
   useStopScroll(showSearch || showCategoryDropdown);
+  const [openDrawer, closeDrawer] = useDrawer();
+
+  const openCartDrawer = () => {
+    openDrawer({ content: <CartDrawer closeHandler={closeDrawer} /> });
+  };
 
   return (
     <div
@@ -106,7 +111,11 @@ export const BottomHeader: React.FC<BottomHeaderProps> = ({ isScrolling }) => {
               </button>
 
               {/* Cart Button */}
-              <button type='button' className='group ms-6 hidden shrink-0 items-center lg:flex'>
+              <button
+                onClick={openCartDrawer}
+                type='button'
+                className='group ms-6 hidden shrink-0 items-center lg:flex'
+              >
                 <span className='relative flex h-[45px] w-[45px] items-center justify-center rounded-full border-2 border-white/15 px-[5px]'>
                   <CartIcon className='text-brand' />
 
