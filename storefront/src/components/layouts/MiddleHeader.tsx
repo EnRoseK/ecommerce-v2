@@ -1,6 +1,7 @@
 import { CartDrawer, Container, Logo, Searchbar } from '@/components';
 import { useDrawer } from '@/hooks';
-import { CartIcon, MenuIcon, UserIcon } from '@/icons';
+import { CartIcon, UserIcon } from '@/icons';
+import { FiMenu } from 'react-icons/fi';
 
 export const MiddleHeader: React.FC = () => {
   const [openDrawer, closeDrawer] = useDrawer();
@@ -16,7 +17,7 @@ export const MiddleHeader: React.FC = () => {
           {/* Mobile Menu Button */}
           <div className='relative flex-shrink-0 lg:hidden'>
             <button className='flex flex-shrink-0 items-center rounded-md border border-border-base/40  px-2.5 py-3 text-sm text-skin-inverted hover:border-border-four focus:outline-none md:px-3 md:py-3.5'>
-              <MenuIcon />
+              <FiMenu className='text-xl text-skin-inverted lg:text-2xl' />
             </button>
           </div>
 
@@ -26,7 +27,7 @@ export const MiddleHeader: React.FC = () => {
           {/* Searchbar */}
           <Searchbar className='hidden lg:mx-10 lg:flex lg:max-w-[450px] xl:max-w-[650px] 2xl:max-w-[900px]' />
 
-          {/* TODO: Add login modal and card drawer */}
+          {/* TODO: Add login modal */}
           {/* Menu Buttons */}
           <div className='flex space-x-5 lg:max-w-[33%] xl:space-x-10'>
             {/* User Button */}

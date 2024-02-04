@@ -1,6 +1,6 @@
-import { Container, Logo, Searchbar } from '@/components';
+import { CategoryDropdownMenu, Container, Logo, Searchbar } from '@/components';
 import { navigationItems } from '@/constants';
-import { useStopScroll } from '@/hooks';
+import { useAnimation, useStopScroll } from '@/hooks';
 import { CartIcon, SearchIcon, UserIcon } from '@/icons';
 import classNames from 'classnames';
 import Link from 'next/link';
@@ -13,7 +13,9 @@ interface BottomHeaderProps {
 
 export const BottomHeader: React.FC<BottomHeaderProps> = ({ isScrolling }) => {
   const [showSearch, setShowSearch] = useState<boolean>(false);
-  useStopScroll(showSearch);
+  const [showCategoryDropdown, setShowCategoryDropdown] = useState<boolean>(false);
+  const [renderCategoryDropdown, onAnimationEnd] = useAnimation(showCategoryDropdown);
+  useStopScroll(showSearch || showCategoryDropdown);
 
   return (
     <div
@@ -32,10 +34,21 @@ export const BottomHeader: React.FC<BottomHeaderProps> = ({ isScrolling }) => {
 
           {/* Categories Button */}
           <div className={classNames('relative me-8 w-72 flex-shrink-0', { hidden: isScrolling })}>
-            <button className='hover:border-skin-four flex min-h-[60px] w-full items-center rounded-t bg-brand px-[18px] py-4 font-medium uppercase text-white focus:outline-none'>
+            <button
+              onClick={() => setShowCategoryDropdown((prev) => !prev)}
+              className='hover:border-skin-four relative z-50 flex min-h-[60px] w-full items-center rounded-t bg-brand px-[18px] py-4 font-medium uppercase text-white focus:outline-none'
+            >
               <FiMenu className='me-3 text-2xl' />
               <span>All Categories</span>
             </button>
+
+            {renderCategoryDropdown && (
+              <CategoryDropdownMenu
+                show={showCategoryDropdown}
+                onAnimationEnd={onAnimationEnd}
+                closeHandler={() => setShowCategoryDropdown(false)}
+              />
+            )}
           </div>
 
           {/* Navigation */}

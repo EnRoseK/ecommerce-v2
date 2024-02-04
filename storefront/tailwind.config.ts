@@ -132,6 +132,14 @@ const config: Config = {
           '0%': { left: '0' },
           '100%': { left: '-100%' },
         },
+        collapseOpen: {
+          '0%': { 'grid-template-rows': '0fr' },
+          '100%': { 'grid-template-rows': '1fr' },
+        },
+        collapseClose: {
+          '0%': { 'grid-template-rows': '1fr' },
+          '100%': { 'grid-template-rows': '0fr' },
+        },
       },
       animation: {
         shine: 'shine 0.8s ease-in',
@@ -145,6 +153,8 @@ const config: Config = {
         drawerRightClose: 'drawerRightClose .3s ease forwards',
         drawerLeftOpen: 'drawerLeftOpen .3s ease forwards',
         drawerLeftClose: 'drawerLeftClose .3s ease forwards',
+        collapseOpen: 'collapseOpen .2s ease forwards',
+        collapseClose: 'collapseClose .2s ease forwards',
       },
       fontFamily: {
         sans: [

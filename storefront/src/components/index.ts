@@ -6,3 +6,4 @@ export * from './carousels';
 export * from './banners';
 export * from './products';
 export * from './cart';
+export * from './menu';
