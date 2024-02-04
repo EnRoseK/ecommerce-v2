@@ -5,3 +5,5 @@ export * from './Button';
 export * from './CloseButton';
 export * from './Overlay';
 export * from './Input';
+export * from './PageHeroSection';
+export * from './Accordion';
