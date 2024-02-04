@@ -4,7 +4,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { useState } from 'react';
 import { useAnimation, useStopScroll } from '@/hooks';
 import { CloseIcon, SearchIcon } from '@/icons';
-import { SearchProductCard } from '@/components';
+import { Overlay, SearchProductCard } from '@/components';
 
 const searchVariants = cva(
   'text-heading outline-none w-full h-[45px] pl-5 md:pl-6 pr-14 md:pr-16 bg-brand-light text-brand-dark text-sm rounded-full transition-all duration-200 focus:border-brand focus:ring-0 placeholder:text-brand-dark/50',
@@ -37,12 +37,21 @@ export const Searchbar: React.FC<SearchbarProps> = ({
   const [focused, setFocused] = useState<boolean>(showOverlay || false);
 
   const [renderFocused, onAnimationEnd] = useAnimation(focused);
+  const [renderResult, onAnimationEndResult] = useAnimation(focused && !!searchValue);
   useStopScroll(focused);
 
   return (
     <div className={twMerge('w-full', className)}>
       {/* Searchbox */}
-      <div className='relative z-[60] flex w-full shrink-0 flex-col justify-center'>
+      <div
+        className={classNames(
+          'relative flex w-full shrink-0 flex-col justify-center transition-none',
+          {
+            'z-auto': !focused,
+            'z-[1000]': focused,
+          },
+        )}
+      >
         <div className='mx-auto flex w-full flex-col'>
           <form noValidate className='relative flex w-full rounded-md'>
             <label className='flex flex-1 items-center py-0.5'>
@@ -72,24 +81,30 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         </div>
 
         {/* Search result */}
-        {renderFocused && (
+        {renderResult && (
           <div
             className={classNames(
-              'absolute left-0 top-[56px] flex w-full flex-col overflow-hidden rounded-md bg-brand-light shadow-dropDown',
-              { 'animate-fadeIn': focused, 'animate-fadeOut': !focused },
+              'absolute left-0 top-[56px] grid w-full overflow-hidden rounded-md bg-brand-light shadow-dropDown',
+              {
+                'animate-collapseOpen': focused && searchValue,
+                'animate-collapseClose': !focused || !searchValue,
+              },
             )}
+            onAnimationEnd={onAnimationEndResult}
           >
-            <div className='max-h-[380px] w-full overflow-y-auto'>
-              {Array.from(Array(5)).map((_, index) => {
-                return (
-                  <div
-                    key={index}
-                    className='scroll-snap-align-start border-b border-black/5 py-2.5 pe-10 ps-5 hover:bg-fill-four'
-                  >
-                    <SearchProductCard />
-                  </div>
-                );
-              })}
+            <div className='overflow-hidden'>
+              <div className='max-h-[380px] w-full overflow-y-auto'>
+                {Array.from(Array(5)).map((_, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className='scroll-snap-align-start border-b border-black/5 py-2.5 pe-10 ps-5 hover:bg-fill-four'
+                    >
+                      <SearchProductCard />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         )}
@@ -97,18 +112,15 @@ export const Searchbar: React.FC<SearchbarProps> = ({
 
       {/* Overlay */}
       {renderFocused && (
-        <div
+        <Overlay
+          show={focused}
           onAnimationEnd={onAnimationEnd}
-          onClick={() => {
+          onClickHandler={() => {
             setFocused(false);
             if (overlayClickHandler) {
               overlayClickHandler();
             }
           }}
-          className={classNames(
-            'fixed left-0 top-0 z-[21] flex h-full w-full cursor-pointer bg-black/35',
-            { 'animate-fadeIn': focused, 'animate-fadeOut': !focused },
-          )}
         />
       )}
     </div>

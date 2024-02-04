@@ -24,7 +24,7 @@ export const BottomHeader: React.FC<BottomHeaderProps> = ({ isScrolling }) => {
 
   return (
     <div
-      className={classNames('z-50 hidden w-full bg-fill-one lg:block', {
+      className={classNames('hidden w-full bg-fill-one lg:block', {
         'lg:fixed lg:top-0 lg:shadow-header': isScrolling,
       })}
     >
@@ -38,10 +38,17 @@ export const BottomHeader: React.FC<BottomHeaderProps> = ({ isScrolling }) => {
           />
 
           {/* Categories Button */}
-          <div className={classNames('relative me-8 w-72 flex-shrink-0', { hidden: isScrolling })}>
+          <div
+            className={classNames('relative me-8 w-72 flex-shrink-0', {
+              hidden: isScrolling,
+            })}
+          >
             <button
               onClick={() => setShowCategoryDropdown((prev) => !prev)}
-              className='hover:border-skin-four relative z-50 flex min-h-[60px] w-full items-center rounded-t bg-brand px-[18px] py-4 font-medium uppercase text-white focus:outline-none'
+              className={classNames(
+                'hover:border-skin-four relative flex min-h-[60px] w-full items-center rounded-t bg-brand px-[18px] py-4 font-medium uppercase text-white transition-none focus:outline-none',
+                { 'z-auto': !showCategoryDropdown, 'z-[1000]': showCategoryDropdown },
+              )}
             >
               <FiMenu className='me-3 text-2xl' />
               <span>All Categories</span>

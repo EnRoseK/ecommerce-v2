@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import { IoIosArrowForward } from 'react-icons/io';
+import { Overlay } from '..';
 
 interface CategoryDropdownMenuProps {
   show: boolean;
@@ -18,7 +19,7 @@ export const CategoryDropdownMenu: React.FC<CategoryDropdownMenuProps> = ({
     <>
       <div
         onAnimationEnd={onAnimationEnd}
-        className={classNames('absolute z-40 grid w-72 lg:w-full', {
+        className={classNames('absolute z-[1000] grid w-72 lg:w-full', {
           'animate-collapseOpen': show,
           'animate-collapseClose': !show,
         })}
@@ -47,14 +48,7 @@ export const CategoryDropdownMenu: React.FC<CategoryDropdownMenuProps> = ({
         </div>
       </div>
 
-      <div
-        onAnimationEnd={onAnimationEnd}
-        onClick={closeHandler}
-        className={classNames('fixed inset-0 z-30 cursor-pointer bg-brand-dark/70', {
-          'animate-fadeIn': show,
-          'animate-fadeOut': !show,
-        })}
-      />
+      <Overlay show={show} onAnimationEnd={onAnimationEnd} onClickHandler={closeHandler} />
     </>
   );
 };
