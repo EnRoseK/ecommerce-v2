@@ -7,3 +7,7 @@ export * from './Overlay';
 export * from './Input';
 export * from './PageHeroSection';
 export * from './Accordion';
+export * from './Heading';
+export * from './Text';
+export * from './Component';
+export * from './Textarea';

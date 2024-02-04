@@ -11,3 +11,6 @@ export * from './MinusIcon';
 export * from './PlusIcon';
 export * from './DeleteIcon';
 export * from './NotFoundIcon';
+export * from './LocationIcon';
+export * from './MailIcon';
+export * from './PhoneIcon';
