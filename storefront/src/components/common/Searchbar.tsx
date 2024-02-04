@@ -7,7 +7,7 @@ import { CloseIcon, SearchIcon } from '@/icons';
 import { SearchProductCard } from '@/components';
 
 const searchVariants = cva(
-  'text-heading outline-none w-full h-[45px] ltr:pl-5 rtl:pr-5 md:ltr:pl-6 md:rtl:pr-6 ltr:pr-14 rtl:pl-14 md:ltr:pr-16 md:rtl:pl-16 bg-brand-light text-brand-dark text-sm rounded-full transition-all duration-200 focus:border-brand focus:ring-0 placeholder:text-brand-dark/50',
+  'text-heading outline-none w-full h-[45px] pl-5 md:pl-6 pr-14 md:pr-16 bg-brand-light text-brand-dark text-sm rounded-full transition-all duration-200 focus:border-brand focus:ring-0 placeholder:text-brand-dark/50',
   {
     variants: {
       variant: {
@@ -42,7 +42,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
   return (
     <div className={twMerge('w-full', className)}>
       {/* Searchbox */}
-      <div className='relative z-30 flex w-full shrink-0 flex-col justify-center'>
+      <div className='relative z-[60] flex w-full shrink-0 flex-col justify-center'>
         <div className='mx-auto flex w-full flex-col'>
           <form noValidate className='relative flex w-full rounded-md'>
             <label className='flex flex-1 items-center py-0.5'>
@@ -75,7 +75,7 @@ export const Searchbar: React.FC<SearchbarProps> = ({
         {renderFocused && (
           <div
             className={classNames(
-              'absolute left-0 top-[56px] z-30 flex w-full flex-col overflow-hidden rounded-md bg-brand-light shadow-dropDown',
+              'absolute left-0 top-[56px] flex w-full flex-col overflow-hidden rounded-md bg-brand-light shadow-dropDown',
               { 'animate-fadeIn': focused, 'animate-fadeOut': !focused },
             )}
           >
