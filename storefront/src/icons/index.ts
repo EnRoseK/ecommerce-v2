@@ -14,3 +14,5 @@ export * from './NotFoundIcon';
 export * from './LocationIcon';
 export * from './MailIcon';
 export * from './PhoneIcon';
+export * from './Eye';
+export * from './EyeOff';

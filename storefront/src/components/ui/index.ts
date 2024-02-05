@@ -11,3 +11,4 @@ export * from './Heading';
 export * from './Text';
 export * from './Component';
 export * from './Textarea';
+export * from './PasswordInput';
