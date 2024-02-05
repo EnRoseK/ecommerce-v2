@@ -3,6 +3,7 @@ import {
   AccountSettings,
   Container,
   MobileAccountNavigation,
+  Wishlist,
 } from '@/components';
 import { NextPage } from 'next';
 import { useState } from 'react';
@@ -11,6 +12,10 @@ const components = [
   {
     slug: 'settings',
     component: AccountSettings,
+  },
+  {
+    slug: 'wishlist',
+    component: Wishlist,
   },
 ];
 

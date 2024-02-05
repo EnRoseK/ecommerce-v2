@@ -1,13 +1,14 @@
 import React from 'react';
-import { Button, Input } from '@/components';
+import { Button, Heading, Input } from '@/components';
 
 export const AccountSettings: React.FC = () => {
   return (
     <div className='flex w-full flex-col'>
       {/* Personal Information Form */}
-      <h2 className='mb-5 text-[20px] font-medium text-fill-base md:mb-6 lg:-mt-1 lg:mb-7 xl:text-[20px] xl:leading-8'>
+      <Heading className='mb-5 md:mb-6 lg:-mt-1 lg:mb-7' variant='titleLarge'>
         Personal Information
-      </h2>
+      </Heading>
+
       <form className='mx-auto flex w-full flex-col justify-center'>
         <div className='pb-7 md:pb-8 lg:pb-10'>
           <div className='flex flex-col space-y-4 sm:space-y-5'>

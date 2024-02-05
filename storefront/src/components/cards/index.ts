@@ -6,3 +6,4 @@ export * from './ProductGridCard';
 export * from './CategoryGridCard';
 export * from './ProductListCard';
 export * from './CartProductCard';
+export * from './WishlistProductCard';
