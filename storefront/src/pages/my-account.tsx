@@ -6,7 +6,7 @@ import {
   Wishlist,
 } from '@/components';
 import { NextPage } from 'next';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const components = [
   {
@@ -20,9 +20,10 @@ const components = [
 ];
 
 const MyAccountPage: NextPage = () => {
-  const [activeTab, setActiveTab] = useState<string>('settings');
+  const router = useRouter();
+  const { tab = 'settings' } = router.query;
 
-  const currentComponent = components.find((comp) => comp.slug === activeTab);
+  const currentComponent = components.find((comp) => comp.slug === tab);
 
   // TODO: Add other components
   return (
@@ -32,12 +33,12 @@ const MyAccountPage: NextPage = () => {
           <div className='flex w-full flex-col lg:flex-row'>
             {/* Mobile Navigation */}
             <div className='lg:hidden'>
-              <MobileAccountNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+              <MobileAccountNavigation />
             </div>
 
             {/* Navigation */}
             <div className='me-7 hidden w-72 flex-shrink-0 lg:block xl:me-8'>
-              <AccountNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+              <AccountNavigation />
             </div>
 
             {/* Content */}

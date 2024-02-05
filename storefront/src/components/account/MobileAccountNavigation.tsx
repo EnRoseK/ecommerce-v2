@@ -1,18 +1,14 @@
 import { accountNavItems } from '@/constants';
 import { useAnimation, useClickOutside } from '@/hooks';
 import classNames from 'classnames';
+import { useRouter } from 'next/router';
 import { FaChevronDown } from 'react-icons/fa';
 
-interface MobileAccountNavigationProps {
-  activeTab: string;
-  setActiveTab: React.Dispatch<React.SetStateAction<string>>;
-}
+export const MobileAccountNavigation: React.FC = () => {
+  const router = useRouter();
+  const { tab = 'settings' } = router.query;
 
-export const MobileAccountNavigation: React.FC<MobileAccountNavigationProps> = ({
-  activeTab,
-  setActiveTab,
-}) => {
-  const selectedItem = accountNavItems.find((item) => item.slug === activeTab);
+  const selectedItem = accountNavItems.find((item) => item.slug === tab);
   const [showDropdown, setShowDropdown, ref] = useClickOutside();
   const [renderDropdown, onAnimationEnd] = useAnimation(showDropdown);
 
@@ -49,19 +45,19 @@ export const MobileAccountNavigation: React.FC<MobileAccountNavigationProps> = (
         >
           <div className='overflow-hidden'>
             {accountNavItems.map((item) => {
-              const active = item.slug === activeTab;
+              const active = item.slug === tab;
 
               return (
                 <li
                   key={item.slug}
                   onClick={() => {
-                    setActiveTab(item.slug);
+                    router.push({ query: { ...router.query, tab: item.slug } });
                     setShowDropdown(false);
                   }}
                   className={classNames(
                     'relative cursor-pointer px-4 py-3 hover:bg-fill-dropdown-hover md:px-5',
                     {
-                      'bg-fill-dropdown-hover text-brand-dark': active,
+                      'bg-fill-dropdown-hover font-medium text-brand-dark': active,
                       'bg-brand-light': !active,
                     },
                   )}
