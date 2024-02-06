@@ -1,6 +1,13 @@
-import { CartDrawer, CategoryDropdownMenu, Container, Logo, Searchbar } from '@/components';
+import {
+  CartDrawer,
+  CategoryDropdownMenu,
+  Container,
+  Logo,
+  Searchbar,
+  SignInForm,
+} from '@/components';
 import { navigationItems } from '@/constants';
-import { useAnimation, useDrawer, useStopScroll } from '@/hooks';
+import { useAnimation, useDrawer, useModal, useStopScroll } from '@/hooks';
 import { CartIcon, SearchIcon, UserIcon } from '@/icons';
 import classNames from 'classnames';
 import Link from 'next/link';
@@ -17,9 +24,17 @@ export const BottomHeader: React.FC<BottomHeaderProps> = ({ isScrolling }) => {
   const [renderCategoryDropdown, onAnimationEnd] = useAnimation(showCategoryDropdown);
   useStopScroll(showSearch || showCategoryDropdown);
   const [openDrawer, closeDrawer] = useDrawer();
+  const [openModal, closeModal] = useModal();
 
   const openCartDrawer = () => {
     openDrawer({ content: <CartDrawer closeHandler={closeDrawer} /> });
+  };
+
+  const openSignInModal = () => {
+    openModal({
+      content: <SignInForm isPopup closeHandler={closeModal} />,
+      className: 'relative w-full md:w-[720px] lg:w-[920px] xl:w-[1000px] 2xl:w-[1200px]',
+    });
   };
 
   return (
@@ -108,7 +123,11 @@ export const BottomHeader: React.FC<BottomHeaderProps> = ({ isScrolling }) => {
                 <SearchIcon width={22} height={22} className='text-white ' />
               </button>
 
-              <button type='button' className='group hidden shrink-0 items-center lg:flex'>
+              <button
+                onClick={openSignInModal}
+                type='button'
+                className='group hidden shrink-0 items-center lg:flex'
+              >
                 <span className='flex h-[45px] w-[45px] items-center justify-center rounded-full border-2 border-white/15 px-[5px]'>
                   <UserIcon className='text-brand' />
                 </span>

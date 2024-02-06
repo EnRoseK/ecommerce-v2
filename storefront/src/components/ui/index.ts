@@ -12,3 +12,5 @@ export * from './Text';
 export * from './Component';
 export * from './Textarea';
 export * from './PasswordInput';
+export { default as Divider } from './Divider';
+export { default as Switch } from './Switch';

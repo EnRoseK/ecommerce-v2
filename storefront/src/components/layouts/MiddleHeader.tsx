@@ -1,13 +1,21 @@
-import { CartDrawer, Container, Logo, Searchbar } from '@/components';
-import { useDrawer } from '@/hooks';
+import { CartDrawer, Container, Logo, Searchbar, SignInForm } from '@/components';
+import { useDrawer, useModal } from '@/hooks';
 import { CartIcon, UserIcon } from '@/icons';
 import { FiMenu } from 'react-icons/fi';
 
 export const MiddleHeader: React.FC = () => {
   const [openDrawer, closeDrawer] = useDrawer();
+  const [openModal, closeModal] = useModal();
 
   const openCartDrawer = () => {
     openDrawer({ content: <CartDrawer closeHandler={closeDrawer} /> });
+  };
+
+  const openSignInModal = () => {
+    openModal({
+      content: <SignInForm isPopup closeHandler={closeModal} />,
+      className: 'relative w-full md:w-[720px] lg:w-[920px] xl:w-[1000px] 2xl:w-[1200px]',
+    });
   };
 
   return (
@@ -31,7 +39,11 @@ export const MiddleHeader: React.FC = () => {
           {/* Menu Buttons */}
           <div className='flex space-x-5 lg:max-w-[33%] xl:space-x-10'>
             {/* User Button */}
-            <button type='button' className='group hidden shrink-0 items-center lg:flex'>
+            <button
+              onClick={openSignInModal}
+              type='button'
+              className='group hidden shrink-0 items-center lg:flex'
+            >
               <span className='flex h-[45px] w-[45px] items-center justify-center rounded-full border-2 border-white/15 px-[5px]'>
                 <UserIcon className='text-brand' />
               </span>

@@ -2,6 +2,7 @@ import { AccountNavigationItem } from '@/types';
 import { FaRegHeart } from 'react-icons/fa';
 import { FiMapPin, FiShoppingBag } from 'react-icons/fi';
 import { HiOutlineCog8Tooth } from 'react-icons/hi2';
+import { IoHelpBuoyOutline } from 'react-icons/io5';
 import { MdOutlineAccountCircle, MdOutlineLogout } from 'react-icons/md';
 
 export const accountNavItems: AccountNavigationItem[] = [
@@ -29,6 +30,11 @@ export const accountNavItems: AccountNavigationItem[] = [
     slug: 'password',
     name: 'Change Password',
     icon: HiOutlineCog8Tooth,
+  },
+  {
+    slug: 'help-center',
+    name: 'Help Center',
+    icon: IoHelpBuoyOutline,
   },
   {
     slug: 'logout',
